@@ -16,7 +16,7 @@ The base address for the connection string used by this API is:
  https://cz-2010-api.herokuapp.com/
  ```
 
-Keep in mind that this API is an MVP that can be used as a proof-of-concept when developing and maintaining this dataset. That being said, the best route to illistrate the utility of this API is provided below. This route takes in the station number, and a month start and month end date and will return all of the data for that station for the timeframe between those two months.
+Keep in mind that this API is an MVP that can be used as a proof-of-concept when developing and maintaining this dataset. That being said, the best route to illustrate the utility of this API is provided below. This route takes in the station number, and a month start and month end date and will return all of the data for that station for the timeframe between those two months.
 
 ```
 /api/v1.0/<station>/<start_date>/<end_date>
@@ -37,7 +37,11 @@ For this project, I purchased the three files used for this development from Whi
 
 This repo contains the scripts and notebooks that are used (or have) been used to stand up this API.
 
+### Other work that needs to be done on this project.
+**Address the vulnerabilities in the dependencies.** This will require that we use a newer version of `Flask` and `SQLAlchemy`.
 
+**Address any issues with the use of these data from a licensing standpoint.** Need to talk to Joe Huang, Whitebox Technologies, about this since this is who I purchased the data from.
 
+**Incorporate the use of Docker within the dev process.** This will help to be sure that all of the folks who will contribute to this project be using the same dev environment in order to minimize the *It Works On My Machine* [problem](https://hackernoon.com/it-works-on-my-machine-f7a1e3d90c63).
 
-
+**Get initial feedback from the IOUs and other Stakeholders on the utility of this API.** From the [call yesterday](https://pda.energydataweb.com/#!/documents/2280/view) presenting the updates to these files, it seems that there is interest in developing an API for these data. It will be helpful to know the extent of this interest for this feature using this MVP. I think the best next step is to talk to Brian Smith, PG&E and Joe Huang to get their input.
