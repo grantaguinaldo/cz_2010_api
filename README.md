@@ -1,6 +1,12 @@
-# `CZ_2010` API Development (July 13, 2019)
+# `CZ_2010` API Development 
 
-This code represents a minimal viable product (MVP) that can be elaborated to develop a production API that can be used for the CZ_2010, or newer, weather datasets.  These `CZ_2010` datasets are used in meter-based energy efficiency calculations, among other uses. 
+**By:** Grant T. Aguinaldo 
+<br>
+**Date:** July 13, 2019
+
+---
+
+This code represents a minimal viable product (MVP) that can be elaborated to develop a production [Application Programming Interface (API)](https://en.wikipedia.org/wiki/Application_programming_interface) that can be used for the CZ_2010, or newer, weather datasets.  These `CZ_2010` datasets are used in meter-based energy efficiency calculations, among other uses. 
 
 Right now, this API only contains the weather data for three stations in Southern California.
 
@@ -13,13 +19,13 @@ For each of these stations, you are able to request the entire years’ worth (i
 The base address for the connection string used by this API is:
 
  ```
- https://cz-2010-api.herokuapp.com/
+ https://cz-2010-api.herokuapp.com/api/v1.0
  ```
 
 Keep in mind that this API is an MVP that can be used as a proof-of-concept when developing and maintaining this dataset. That being said, the best route to illustrate the utility of this API is provided below. This route takes in the station number, and a month start and month end date and will return all of the data for that station for the timeframe between those two months.
 
 ```
-/api/v1.0/<station>/<start_date>/<end_date>
+/<station>/<start_date>/<end_date>
 ```
 
 For example, if the route called is `/api/v1.0/722874/01/03` then all of the data from the Los Angeles, Downtown station will be retrieved for the months of Jan, Feb and Mar. The full connection string for this API call would be:
@@ -44,4 +50,6 @@ This repo contains the scripts and notebooks that are used (or have) been used t
 
 **Incorporate the use of Docker within the dev process.** This will help to be sure that all of the folks who will contribute to this project be using the same dev environment in order to minimize the *It Works On My Machine* [problem](https://hackernoon.com/it-works-on-my-machine-f7a1e3d90c63).
 
-**Get initial feedback from the IOUs and other Stakeholders on the utility of this API.** From the [call yesterday](https://pda.energydataweb.com/#!/documents/2280/view) presenting the updates to these files, it seems that there is interest in developing an API for these data. It will be helpful to know the extent of this interest for this feature using this MVP. I think the best next step is to talk to Brian Smith, PG&E and Joe Huang to get their input.
+**Get initial feedback from the IOUs and other Stakeholders on the utility of this API.** From the [call yesterday](https://pda.energydataweb.com/#!/documents/2280/view) presenting the updates to these files, it seems that there is interest in developing an API for these data. It will be helpful to know the extent of this interest for this feature using this MVP. I think the best next step is to talk to Brian Smith, PG&E and Joe Huang to get their input. Additionally, I recall that there maybe some interest from DNV GL on use and development of this API.
+
+**Need to ensure that the timestamps are accurately preserved in the JSON as compared to the source files.** When sub-setting out the weather data for the development of the API, there may be an issue with how the timestamps are aligned in the JSON response as compared to the source.
