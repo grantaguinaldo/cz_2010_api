@@ -8,7 +8,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-#Connects to the SQL database.
+# Connects to the SQL database.
 connection_string = 'sqlite:///cz_2010.sqlite'
 engine = create_engine(connection_string)
 Base = automap_base()
@@ -34,8 +34,8 @@ def station_names():
 
     return jsonify(session.query(cz_2010.STATION).distinct().all())
 
-#TODO: CREATE QUERY TO RETURN ALL DATA FROM A SINGLE STATION BETWEEN A GIVEN TIME FRAME.
-#TODO: CREATE 'KITCHEN SINK' QUERY TO RETURN EVERYTHING FOR A GIVEN STATION.
+# TODO: CREATE QUERY TO RETURN ALL DATA FROM A SINGLE STATION BETWEEN A GIVEN TIME FRAME.
+# TODO: CREATE 'KITCHEN SINK' QUERY TO RETURN EVERYTHING FOR A GIVEN STATION.
 
 
 if __name__ == "__main__":
