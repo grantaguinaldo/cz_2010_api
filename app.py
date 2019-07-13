@@ -34,6 +34,9 @@ def station_names():
 
     return jsonify(session.query(cz_2010.STATION).distinct().all())
 
+#TODO: CREATE QUERY TO RETURN ALL DATA FROM A SINGLE STATION BETWEEN A GIVEN TIME FRAME.
+#TODO: CREATE 'KITCHEN SINK' QUERY TO RETURN EVERYTHING FOR A GIVEN STATION.
+
 
 if __name__ == "__main__":
     app.run(debug=True)
