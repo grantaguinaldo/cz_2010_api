@@ -22,26 +22,19 @@ def hello_world():
     return 'Yes, I am alive!!!'
 
 # Returns JSON of all station numbers in the database.
-
-
 @app.route('/api/v1.0/station')
 def stations():
 
     return jsonify(session.query(cz_2010.STATION_NBR).distinct().all())
 
 # Returns JSON of all station names in the database.
-
-
 @app.route('/api/v1.0/station_names')
 def station_names():
 
     return jsonify(session.query(cz_2010.STATION).distinct().all())
 
-# TODO: CREATE 'KITCHEN SINK' QUERY TO RETURN EVERYTHING FOR A GIVEN STATION.
-# TODO: CREATE MAIN PAGE THAT SHOWS THE AVAILABLE END POINTS.
 
-
-# TODO: CREATE QUERY TO RETURN ALL DATA FROM A SINGLE STATION BETWEEN A TWO MONTHS.
+# Returns a JSON of all of the data from a single station between any two months.
 @app.route('/api/v1.0/<station>/<start_date>/<end_date>')
 def station_start_end(station, start_date, end_date):
 
