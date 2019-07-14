@@ -1,3 +1,5 @@
+# import database
+# import create_map
 import sqlalchemy
 import pandas as pd
 from sqlalchemy.ext.automap import automap_base
@@ -5,9 +7,12 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template
 
+
 app = Flask(__name__)
 
 # Connects to the SQL database.
+
+
 connection_string = 'sqlite:///cz_2010.sqlite'
 engine = create_engine(connection_string)
 Base = automap_base()
