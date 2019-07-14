@@ -3,7 +3,7 @@ import pandas as pd
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
@@ -15,6 +15,13 @@ Base.prepare(engine, reflect=True)
 cz_2010 = Base.classes.cz_2010_usc
 session = Session(engine)
 
+# Serves up the HTML page in the `templates` folder.
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 
 # Checks if the app is running on the server.
 @app.route('/is_alive')
@@ -22,12 +29,16 @@ def hello_world():
     return 'Yes, I am alive!!!'
 
 # Returns JSON of all station numbers in the database.
+
+
 @app.route('/api/v1.0/station')
 def stations():
 
     return jsonify(session.query(cz_2010.STATION_NBR).distinct().all())
 
 # Returns JSON of all station names in the database.
+
+
 @app.route('/api/v1.0/station_names')
 def station_names():
 

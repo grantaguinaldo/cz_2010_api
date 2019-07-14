@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CZ_2010 API Development</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <br>
+  <br>
+  <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        <div class="col-8">
+            <div class="jumbotron">
+              <h1 class="display-4">CZ_2010 API Development</h1>
+                <p class="lead">This code represents a minimal viable product (MVP) that can be elaborated to develop a production-grade Application Programming Interface (API) for the CZ_2010, or newer, weather datasets.</p>
+                    <hr class="my-4">
+                <p>Click the button below to go to the GitHub Repo for this API.</p>
+              <a class="btn btn-primary btn-lg" href="https://github.com/grantaguinaldo/cz_2010_api" role="button">View Repo</a>
+            </div>
+        </div>
+
+        <div class="col">
+
+        </div>
+  </div>
+
+<div class="container">
+      <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-8">
+            <p>The video below breifly explains intent and story behind this API.</p>
+            <center>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Vx3jrx92PT4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+            <br>
+
+            <p>
+                Right now, this API only contains the weather data for three stations in Southern California.
+
+                <br>
+
+                <center>
+                    <ul class="list-group">
+                      <li class="list-group-item">BURBANK-GLENDALE, 722880</li>
+                      <li class="list-group-item">LONG-BEACH, 722970</li>
+                      <li class="list-group-item">LOS-ANGELES-DOWNTOWN, 722874</li>
+                    </ul>
+                </center>
+
+                <br>
+
+                For each of these stations, you are able to request the entire years’ worth (i.e., 12 months, or 365 days) of CZ_2010 typical year weather data.
+
+                <br>
+                <br>
+
+                The base address for the connection string used by this API is:
+
+                <br>
+                <br>
+
+                <code>https://cz-2010-api.herokuapp.com/api/v1.0/&lt;station&gt;/&lt;start_date&gt;/&lt;end_date&gt;</code>
+
+                <br>
+                <br>
+                Where <code>&lt;station&gt;</code> is the station number and <code>&lt;start_date&gt;</code> and <code>&lt;end_date&gt;</code> are the start and end dates of the query, respectively. Please note that <code>&lt;start_date&gt;</code> and <code>&lt;end_date&gt;</code> need to be padded to a two digit integer. That is, January is formatted as <code>01</code> and December is formatted as <code>12</code>
+                <br>
+                <br>
+
+                Keep in mind that this API is an MVP that can be used as a proof-of-concept when developing and maintaining this dataset.
+
+                <br>
+                <br>
+
+                That being said, the best route to illustrate the utility of this API is provided below. This route takes in the station number, and a month start and month end date and will return all of the data for that station for the timeframe between those two months.
+
+                <br>
+                <br>
+                For example, if the route called is <code>/api/v1.0/722874/01/03</code> then all of the data from the Los Angeles, Downtown station will be retrieved for the months of Jan, Feb and Mar. The full connection string for this API call would be:
+
+                <br>
+                <br>
+
+                <code>
+                    https://cz-2010-api.herokuapp.com/api/v1.0/722874/01/03
+                </code>
+            </p>
+
+        </div>
+        <div class="col">
+
+        </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+
+</body>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>
